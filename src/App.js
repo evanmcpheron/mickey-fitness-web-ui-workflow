@@ -1,11 +1,14 @@
-import { Container } from '@mui/material';
+import { Container, Stack } from '@mui/material';
 import React from 'react';
 import { AllRoutes } from './Util/AllRoutes';
 
 const App = () => {
 	return (
-		<Container sx={{ backgroundColor: 'red' }}>
-			<AllRoutes />
+		<Container maxWidth={'xl'}>
+			{/* navbar */}
+			<Stack direction={'row'}>
+				<AllRoutes />
+			</Stack>
 		</Container>
 	);
 };
