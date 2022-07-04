@@ -1,0 +1,6 @@
+button {
+  &.gradient-button {
+    @include gradient-background;
+    @include button-styles;
+  }
+}

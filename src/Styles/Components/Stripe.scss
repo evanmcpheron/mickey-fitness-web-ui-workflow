@@ -1,0 +1,31 @@
+.stripe-container {
+	background: rgba(0, 0, 0, 0);
+	box-shadow: none;
+
+	.StripeElement {
+		background-color: map-get($colors, white);
+		border: 3px solid map-get($colors, purple);
+		border-radius: 8px;
+		color: orange;
+		padding: 10px 12px;
+		-webkit-transition: all 400ms ease;
+		transition: all 400ms ease;
+		width: 100%;
+	}
+
+	.StripeElement--focus {
+		border: 3px solid orange;
+	}
+
+	.StripeElement--invalid {
+		border-color: #fa755a;
+	}
+
+	.StripeElement--webkit-autofill {
+		background-color: dodgerblue !important;
+	}
+
+	.card-div {
+		display: flex;
+	}
+}

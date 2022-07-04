@@ -1,0 +1,13 @@
+@import './Abstracts/variables.scss';
+@import './Abstracts/mixins.scss';
+@import './Core/normalize.scss';
+@import './Core/typography.scss';
+@import './Core/index.scss';
+
+//COMPONENTS
+@import './Components/button.scss';
+@import './Components/Stripe.scss';
+
+//PAGES
+@import './Pages/Auth.scss';
+@import './Pages/legal.scss';
