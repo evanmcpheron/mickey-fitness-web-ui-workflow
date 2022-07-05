@@ -9,10 +9,6 @@ export const AuthForm = ({
 	includeReset,
 	onSubmit,
 }) => {
-	console.log(
-		'🚀 ~ file: AuthForm.js ~ line 12 ~ initialValues',
-		initialValues
-	);
 	return (
 		<Form
 			validationSchema={validationSchema}

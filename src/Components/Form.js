@@ -25,7 +25,7 @@ export const Form = ({
 	};
 
 	return (
-		<div className="Form">
+		<div className="form">
 			<Formik
 				initialValues={initialValues}
 				validationSchema={validationSchema}
@@ -35,23 +35,30 @@ export const Form = ({
 				{formik => {
 					return (
 						<Box padding={2}>
-							<Typography data-testid="form-title" variant={'h3'}>
+							<Typography
+								className="form-title"
+								data-testid="form-title"
+								variant={'h3'}>
 								{title ? title : ''}
 							</Typography>
 							<Wrapper>
 								{fields.map((field, index) => {
 									return (
-										<Box padding={1} key={index}>
+										<Box className={'form-item'} key={index}>
 											{fieldTypeSelector(field)}
 										</Box>
 									);
 								})}
-								<Stack direction={'row'} justifyContent="space-around">
+								<Stack
+									direction={'row'}
+									spacing={2}
+									justifyContent="space-around">
 									<Button
 										variant="contained"
 										color="success"
 										type="submit"
 										fullWidth
+										disabled={!formik.isValid}
 										data-testid="submit-button">
 										{submitButtonValue ? submitButtonValue : 'Submit'}
 									</Button>

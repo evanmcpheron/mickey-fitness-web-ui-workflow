@@ -1,0 +1,4 @@
+.error-message {
+  color: map-get($colors, danger);
+  padding-top: .5rem;
+}

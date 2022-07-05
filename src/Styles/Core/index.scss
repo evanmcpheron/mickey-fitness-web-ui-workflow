@@ -6,21 +6,7 @@
 
 html,
 body {
-  background: map-get($colors, black);
-  color: map-get($colors, light-purple);
   font-size: 18px;
   min-height: 100vh;
   min-width: 100vw;
-}
-
-a {
-  color: map-get($colors, white);
-}
-
-.container {
-  padding: 2rem;
-  position: relative;
-  min-height: 100vh;
-  min-width: 100vw;
-  overflow-x: hidden;
 }

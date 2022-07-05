@@ -15,7 +15,11 @@ export const InputField = ({ label, ...props }) => {
 				fullWidth={true}
 				data-testid="text-field"
 			/>
-			<ErrorMessage name={field.name} />
+			<ErrorMessage
+				component="div"
+				className="error-message"
+				name={field.name}
+			/>
 		</Grid>
 	);
 };
