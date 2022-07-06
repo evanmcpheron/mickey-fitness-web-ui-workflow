@@ -1,15 +1,11 @@
 export const fieldsLogIn = [
-  { name: "email", label: "Email", type: "text" },
-  { name: "password", label: "Password", type: "password" },
-  { name: "rememberMe", label: "Remember Me", fieldType: "checkbox" },
+	{ name: 'email', label: 'Email', type: 'text' },
+	{ name: 'password', label: 'Password', type: 'password' },
+	{ name: 'rememberMe', label: 'Remember Me', fieldType: 'checkbox' },
 ];
 
 export const initValueLogIn = {
-  email: "",
-  password: "",
-  rememberMe: false,
-};
-
-export const submitLogIn = (value) => {
-  console.log(value);
+	email: '',
+	password: '',
+	rememberMe: false,
 };

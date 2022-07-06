@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Form as Wrapper, Formik } from 'formik';
 import { InputField } from './FormikFields/InputField';
 import { CheckboxField } from './FormikFields/CheckboxField';
 import { Box, Button, Stack, Typography } from '@mui/material';
+import useRequest from 'Hooks/use-request';
 
 export const Form = ({
 	fields,
@@ -11,8 +12,20 @@ export const Form = ({
 	title,
 	submitButtonValue,
 	includeReset,
-	onSubmit,
+	url,
+	method,
+	onSuccess,
 }) => {
+	const formRef = useRef();
+	const { doRequest, info } = useRequest({
+		url: url,
+		method: method,
+		body: { data: formRef },
+		onSuccess: () => {
+			return onSuccess();
+		},
+	});
+
 	const fieldTypeSelector = field => {
 		const { label, name, type, fieldType, disabled } = field;
 
@@ -29,12 +42,14 @@ export const Form = ({
 			<Formik
 				initialValues={initialValues}
 				validationSchema={validationSchema}
-				onSubmit={values => {
-					onSubmit(values);
-				}}>
+				onSubmit={async values => {
+					await doRequest(values);
+				}}
+				innerRef={formRef}>
 				{formik => {
 					return (
 						<Box padding={2}>
+							{info}
 							<Typography
 								className="form-title"
 								data-testid="form-title"

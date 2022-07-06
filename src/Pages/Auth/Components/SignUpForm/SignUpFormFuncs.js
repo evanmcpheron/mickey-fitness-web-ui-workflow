@@ -20,11 +20,7 @@ export const submitSignUp = async value => {
 		},
 	};
 
-	const res = await axios.post(
-		'http://localhost:8080/v1/user/signup',
-		body,
-		header
-	);
+	const res = await axios.post('/v1/user/signup', body, header);
 
 	console.log(res.data);
 };

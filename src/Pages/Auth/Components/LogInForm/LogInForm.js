@@ -1,17 +1,26 @@
-import React from "react";
-import { AuthForm } from "../AuthForm";
-import { validateLogIn } from "./LogInFormValidation";
-import { initValueLogIn, fieldsLogIn, submitLogIn } from "./LogInFormFuncs";
+import React from 'react';
+import { Navigate } from 'react-router-dom';
+import { AuthForm } from '../AuthForm';
+import { validateLogIn } from './LogInFormValidation';
+import { initValueLogIn, fieldsLogIn } from './LogInFormFuncs';
 
 export const LogInForm = () => {
-  return (
-    <AuthForm
-      validationSchema={validateLogIn}
-      initialValues={initValueLogIn}
-      fields={fieldsLogIn}
-      title={"Log In"}
-      includeReset={true}
-      onSubmit={(value) => submitLogIn(value)}
-    />
-  );
+	const onSuccess = () => {
+		return <Navigate to="/" replace />;
+	};
+
+	return (
+		<div>
+			<AuthForm
+				validationSchema={validateLogIn}
+				initialValues={initValueLogIn}
+				fields={fieldsLogIn}
+				title={'Log In'}
+				includeReset={true}
+				url={'/v1/user/login'}
+				method={'post'}
+				onSuccess={() => onSuccess()}
+			/>
+		</div>
+	);
 };

@@ -7,7 +7,9 @@ export const AuthForm = ({
 	fields,
 	title,
 	includeReset,
-	onSubmit,
+	url,
+	method,
+	onSuccess,
 }) => {
 	return (
 		<Form
@@ -16,7 +18,9 @@ export const AuthForm = ({
 			fields={fields}
 			title={title}
 			includeReset={includeReset}
-			onSubmit={values => onSubmit(values)}
+			url={url}
+			method={method}
+			onSuccess={() => onSuccess()}
 		/>
 	);
 };
