@@ -57,5 +57,5 @@
     "@testing-library/user-event": "^14.2.1",
     "jest-environment-jsdom": "^28.1.2"
   },
-  "proxy": "https://api.mickeyfitness.com"
+  "proxy": "http://localhost:8080"
 }
