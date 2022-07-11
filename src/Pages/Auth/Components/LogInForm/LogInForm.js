@@ -6,7 +6,7 @@ import { initValueLogIn, fieldsLogIn } from './LogInFormFuncs';
 
 export const LogInForm = () => {
 	const onSuccess = () => {
-		localStorage.setItem('authenticated', true);
+		localStorage.setItem('isAuthenticated', true);
 		return <Navigate to="/" replace />;
 	};
 

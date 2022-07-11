@@ -1,14 +1,15 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { AppBar, Box, Toolbar, Typography, IconButton } from '@mui/material';
+import { Menu } from '@mui/icons-material';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import { Dropdown } from './Component/Dropdown';
+import { NavDrawer } from './Component/NavDrawer';
+import { Link } from 'Components/Link';
 
-export const Navbar = () => {
+export const Navbar = ({ isAuthenticated, colorMode, theme }) => {
+	const [openDrawer, setOpenDrawer] = useState(false);
+
 	return (
 		<Box sx={{ flexGrow: 1 }}>
 			<AppBar position="static">
@@ -18,15 +19,36 @@ export const Navbar = () => {
 						edge="start"
 						color="inherit"
 						aria-label="menu"
+						onClick={() => setOpenDrawer(prev => !prev)}
 						sx={{ mr: 2 }}>
-						<MenuIcon />
+						<Menu />
 					</IconButton>
-					<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-						Mickey Fitness
+					<NavDrawer openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
+					<Typography
+						variant="h6"
+						component="div"
+						sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
+						<Link text="Mickey Fitness" color="inherit" variant="text" to="/" />
 					</Typography>
-					<Button color="inherit">
-						<Link to="auth">Log In / Register</Link>
-					</Button>
+					<Box color={'inherit'}>
+						{isAuthenticated ? (
+							<Dropdown color={'inherit'} />
+						) : (
+							<Link
+								text="Log In / Register"
+								to="auth"
+								varient="text"
+								color="inherit"
+							/>
+						)}
+					</Box>
+					<IconButton onClick={colorMode.toggleColorMode} color="inherit">
+						{theme.palette.mode === 'dark' ? (
+							<Brightness7Icon />
+						) : (
+							<Brightness4Icon />
+						)}
+					</IconButton>
 				</Toolbar>
 			</AppBar>
 		</Box>
