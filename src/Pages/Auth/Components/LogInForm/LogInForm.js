@@ -20,7 +20,7 @@ export const LogInForm = () => {
 				fields={fieldsLogIn}
 				title={'Log In'}
 				includeReset={true}
-				url={'/v1/user/login'}
+				url={'https://api.mickeyfitness.com/v1/user/login'}
 				method={'post'}
 				onSuccess={() => onSuccess()}
 			/>
