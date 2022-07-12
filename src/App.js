@@ -46,14 +46,7 @@ const App = ({ ColorModeContext }) => {
 				theme={theme}
 				sendOpenToApp={pullData}
 			/>
-			<Container
-				maxWidth={'xl'}
-				className="TESTING"
-				style={{
-					minHeight: 'calc(100vh - 64px)',
-					minHeight: '-moz-calc(100vh - 64px)',
-					minHeight: '-webkit-calc(100vh - 64px)',
-				}}>
+			<Container maxWidth={'xl'} className="TESTING" style={{}}>
 				<Stack direction={'row'}>
 					<AllRoutes />
 				</Stack>
