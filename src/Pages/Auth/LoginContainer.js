@@ -20,7 +20,7 @@ export const LoginContainer = () => {
 				padding: 'none',
 				alignItems: 'center',
 			}}>
-			<Grid item xs={12} sm={6}>
+			<Grid item xs={12} md={6}>
 				<Paper elevation={3}>
 					<LogInForm />
 				</Paper>

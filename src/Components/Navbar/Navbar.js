@@ -23,46 +23,60 @@ export const Navbar = ({
 	return (
 		<Box sx={{ flexGrow: 1 }}>
 			<AppBar position="fixed" open={openDrawer}>
-				<Toolbar>
-					<IconButton
-						size="large"
-						edge="start"
-						sx={{ mr: 2 }}
-						color="inherit"
-						aria-label="menu"
-						onClick={() => setOpenDrawer(prev => !prev)}>
-						<Menu />
-					</IconButton>
-					<NavDrawer openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
-					<Typography
-						variant="h6"
-						component="div"
-						sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
-						<Link text="Mickey Fitness" color="inherit" variant="text" to="/" />
-					</Typography>
-					<Box color={'inherit'}>
-						{isAuthenticated ? (
-							<Dropdown color={'inherit'} />
-						) : (
-							<div>
-								<Link text="Log In" to="login" varient="text" color="inherit" />
-								/
-								<Link
-									text="Register"
-									to="signup"
-									varient="text"
-									color="inherit"
-								/>
-							</div>
-						)}
+				<Toolbar sx={{ justifyContent: 'space-between' }}>
+					<Box sx={{ display: 'flex', alignItems: 'center' }}>
+						<IconButton
+							size="large"
+							edge="start"
+							sx={{ mr: 2 }}
+							color="inherit"
+							aria-label="menu"
+							onClick={() => setOpenDrawer(prev => !prev)}>
+							<Menu />
+						</IconButton>
+						<NavDrawer openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
+						<Typography
+							variant="h6"
+							component="div"
+							sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
+							<Link
+								text="Mickey Fitness"
+								color="inherit"
+								variant="text"
+								to="/"
+							/>
+						</Typography>
 					</Box>
-					<IconButton onClick={colorMode.toggleColorMode} color="inherit">
-						{theme.palette.mode === 'dark' ? (
-							<Brightness7Icon />
-						) : (
-							<Brightness4Icon />
-						)}
-					</IconButton>
+					<Box sx={{ display: 'flex', alignItems: 'center' }}>
+						<Box color={'inherit'}>
+							{isAuthenticated ? (
+								<Dropdown color={'inherit'} />
+							) : (
+								<div>
+									<Link
+										text="Log In"
+										to="login"
+										varient="text"
+										color="inherit"
+									/>
+									/
+									<Link
+										text="Register"
+										to="signup"
+										varient="text"
+										color="inherit"
+									/>
+								</div>
+							)}
+						</Box>
+						<IconButton onClick={colorMode.toggleColorMode} color="inherit">
+							{theme.palette.mode === 'dark' ? (
+								<Brightness7Icon />
+							) : (
+								<Brightness4Icon />
+							)}
+						</IconButton>
+					</Box>
 				</Toolbar>
 			</AppBar>
 		</Box>
