@@ -17,7 +17,7 @@ export const SignupContainer = () => {
 		<Grid
 			container
 			sx={{
-				minHeight: 'calc(100vh - 64px)',
+				minHeight: 'calc(100vh - 640px)',
 				padding: 'none',
 				alignItems: 'center',
 			}}>
