@@ -5,6 +5,7 @@ import { validateSignUp } from './SignUpFormValidation';
 import { initValueSignUp, fieldsSignUp } from './SignUpFormFuncs';
 import { Box, Typography } from '@mui/material';
 import { Link } from 'Components/Link';
+import { proxy } from 'Util/proxy';
 
 export const SignUpForm = () => {
 	const onSuccess = () => {
@@ -19,7 +20,7 @@ export const SignUpForm = () => {
 				fields={fieldsSignUp}
 				title={'Sign Up'}
 				includeReset={true}
-				url={'/v1/user/signup'}
+				url={`${proxy()}/v1/user/signup`}
 				method={'post'}
 				onSuccess={() => onSuccess()}
 			/>

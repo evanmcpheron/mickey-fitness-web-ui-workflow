@@ -2,9 +2,7 @@ import React from 'react';
 import { Box, IconButton, Menu, MenuItem } from '@mui/material';
 import { AccountCircle } from '@mui/icons-material';
 import { logout } from '../NavbarFuncs';
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '@mui/material';
 
 export const Dropdown = () => {
 	const [anchorEl, setAnchorEl] = React.useState(null);
@@ -43,11 +41,11 @@ export const Dropdown = () => {
 				<MenuItem onClick={handleClose}>Profile</MenuItem>
 				<MenuItem onClick={handleClose}>My account</MenuItem>
 				<MenuItem
-					to="/auth"
+					to="/login"
 					color="inherit"
 					onClick={() => {
 						handleLogout();
-						navigate('/auth');
+						navigate('/login');
 					}}>
 					Logout
 				</MenuItem>

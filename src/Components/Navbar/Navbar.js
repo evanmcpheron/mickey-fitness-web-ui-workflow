@@ -44,12 +44,16 @@ export const Navbar = ({
 						{isAuthenticated ? (
 							<Dropdown color={'inherit'} />
 						) : (
-							<Link
-								text="Log In / Register"
-								to="signup"
-								varient="text"
-								color="inherit"
-							/>
+							<div>
+								<Link text="Log In" to="login" varient="text" color="inherit" />
+								/
+								<Link
+									text="Register"
+									to="signup"
+									varient="text"
+									color="inherit"
+								/>
+							</div>
 						)}
 					</Box>
 					<IconButton onClick={colorMode.toggleColorMode} color="inherit">

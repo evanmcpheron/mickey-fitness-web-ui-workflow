@@ -5,6 +5,7 @@ import { validateLogIn } from './LogInFormValidation';
 import { initValueLogIn, fieldsLogIn } from './LogInFormFuncs';
 import { Box, Typography } from '@mui/material';
 import { Link } from 'Components/Link';
+import { proxy } from 'Util/proxy';
 
 export const LogInForm = () => {
 	const onSuccess = () => {
@@ -20,7 +21,7 @@ export const LogInForm = () => {
 				fields={fieldsLogIn}
 				title={'Log In'}
 				includeReset={true}
-				url={'https://api.mickeyfitness.com/v1/user/login'}
+				url={`${proxy()}/v1/user/login`}
 				method={'post'}
 				onSuccess={() => onSuccess()}
 			/>

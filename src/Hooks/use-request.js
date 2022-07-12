@@ -23,7 +23,7 @@ const useRequest = ({ url, method, onSuccess }) => {
 				</Box>
 			);
 		} catch (err) {
-			const message = get(err, 'res.data.message');
+			const message = get(err, 'response.data.message', 'Something went wrong');
 
 			setInfo(<InputNotification message={message} severity={'error'} />);
 		}

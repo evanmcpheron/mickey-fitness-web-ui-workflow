@@ -13,13 +13,13 @@ const App = ({ ColorModeContext }) => {
 		Boolean(localStorage.getItem('isAuthenticated'))
 	);
 	const [open, setOpen] = useState(false);
+
 	const theme = useTheme();
 	const colorMode = useContext(ColorModeContext);
-
 	const navigation = useContext(UNSAFE_NavigationContext).navigator;
 
 	useEffect(() => {
-		navigation.listen(location => {
+		navigation.listen(() => {
 			setIsAuth(Boolean(localStorage.getItem('isAuthenticated')));
 		});
 	}, [navigation, isAuth]);
@@ -30,6 +30,7 @@ const App = ({ ColorModeContext }) => {
 		localStorage.setItem('isAuthenticated', false);
 		localStorage.setItem('user', null);
 	}
+
 	const user = JSON.parse(localStorage.getItem('user'));
 
 	const pullData = data => {
