@@ -16,7 +16,6 @@ export const LoginContainer = () => {
 		<Grid
 			container
 			sx={{
-				minHeight: 'calc(100vh - 64px)',
 				padding: 'none',
 				alignItems: 'center',
 			}}>
