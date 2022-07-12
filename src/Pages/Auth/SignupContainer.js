@@ -21,7 +21,7 @@ export const SignupContainer = () => {
 				padding: 'none',
 				alignItems: 'center',
 			}}>
-			<Grid item xs={6}>
+			<Grid item xs={12} sm={6}>
 				<Paper elevation={3}>
 					<SignUpForm />
 				</Paper>
