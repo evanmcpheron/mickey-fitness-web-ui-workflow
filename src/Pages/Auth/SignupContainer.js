@@ -4,7 +4,7 @@ import SignUpForm from './Components/SignUpForm';
 import { Grid, Paper } from '@mui/material';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
-export const AuthContainer = () => {
+export const SignupContainer = () => {
 	if (localStorage.authenticated) {
 		return (
 			<Routes>
@@ -14,13 +14,14 @@ export const AuthContainer = () => {
 	}
 
 	return (
-		<Grid container spacing={2}>
-			<Grid item xs={12} md={6}>
-				<Paper elevation={3}>
-					<LogInForm />
-				</Paper>
-			</Grid>
-			<Grid item xs={12} md={6}>
+		<Grid
+			container
+			sx={{
+				minHeight: 'calc(100vh - 64px)',
+				padding: 'none',
+				alignItems: 'center',
+			}}>
+			<Grid item xs={6}>
 				<Paper elevation={3}>
 					<SignUpForm />
 				</Paper>

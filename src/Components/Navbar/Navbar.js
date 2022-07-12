@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { AppBar, Box, Toolbar, Typography, IconButton } from '@mui/material';
+import { Box, Toolbar, Typography, IconButton } from '@mui/material';
+import { AppBar } from './Component/DrawerFuncs';
 import { Menu } from '@mui/icons-material';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
@@ -7,20 +8,29 @@ import { Dropdown } from './Component/Dropdown';
 import { NavDrawer } from './Component/NavDrawer';
 import { Link } from 'Components/Link';
 
-export const Navbar = ({ isAuthenticated, colorMode, theme }) => {
+export const Navbar = ({
+	isAuthenticated,
+	colorMode,
+	theme,
+	sendOpenToApp,
+}) => {
 	const [openDrawer, setOpenDrawer] = useState(false);
+
+	useEffect(() => {
+		sendOpenToApp(openDrawer);
+	}, [openDrawer]);
 
 	return (
 		<Box sx={{ flexGrow: 1 }}>
-			<AppBar position="static">
+			<AppBar position="fixed" open={openDrawer}>
 				<Toolbar>
 					<IconButton
 						size="large"
 						edge="start"
+						sx={{ mr: 2 }}
 						color="inherit"
 						aria-label="menu"
-						onClick={() => setOpenDrawer(prev => !prev)}
-						sx={{ mr: 2 }}>
+						onClick={() => setOpenDrawer(prev => !prev)}>
 						<Menu />
 					</IconButton>
 					<NavDrawer openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
@@ -36,7 +46,7 @@ export const Navbar = ({ isAuthenticated, colorMode, theme }) => {
 						) : (
 							<Link
 								text="Log In / Register"
-								to="auth"
+								to="signup"
 								varient="text"
 								color="inherit"
 							/>

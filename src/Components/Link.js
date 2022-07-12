@@ -1,11 +1,19 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Button, Link as MuiLink } from '@mui/material';
+import { Button } from '@mui/material';
 
-export const Link = ({ text, color, variant, to, ...props }) => {
-	console.log('🚀 ~ file: Link.js ~ line 6 ~ Link ~ props', props);
+export const Link = ({ text, color, variant, to }) => {
 	return (
-		<Button variant={variant} color={color} component={RouterLink} to={to}>
+		<Button
+			variant={variant}
+			sx={
+				variant === 'text'
+					? { padding: 0, '&:hover': { backgroundColor: 'transparent' } }
+					: null
+			}
+			color={color}
+			component={RouterLink}
+			to={to}>
 			{text}
 		</Button>
 	);

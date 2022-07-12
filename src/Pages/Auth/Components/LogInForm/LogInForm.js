@@ -3,6 +3,8 @@ import { Navigate } from 'react-router-dom';
 import { AuthForm } from '../AuthForm';
 import { validateLogIn } from './LogInFormValidation';
 import { initValueLogIn, fieldsLogIn } from './LogInFormFuncs';
+import { Box, Typography } from '@mui/material';
+import { Link } from 'Components/Link';
 
 export const LogInForm = () => {
 	const onSuccess = () => {
@@ -11,7 +13,7 @@ export const LogInForm = () => {
 	};
 
 	return (
-		<div>
+		<Box>
 			<AuthForm
 				validationSchema={validateLogIn}
 				initialValues={initValueLogIn}
@@ -22,6 +24,15 @@ export const LogInForm = () => {
 				method={'post'}
 				onSuccess={() => onSuccess()}
 			/>
-		</div>
+			<Typography textAlign={'center'} paddingBottom={2}>
+				Need to sign up?{' '}
+				<Link
+					color={'success'}
+					to={'/signup'}
+					variant={'text'}
+					text={'Click Here'}
+				/>
+			</Typography>
+		</Box>
 	);
 };

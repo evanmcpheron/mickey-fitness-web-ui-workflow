@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import {
 	Box,
 	Drawer,
@@ -8,17 +8,19 @@ import {
 	ListItemButton,
 	ListItemIcon,
 	ListItemText,
+	IconButton,
 } from '@mui/material';
+import { Main, DrawerHeader } from './DrawerFuncs';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { fields } from './DrawerFuncs';
-import { Home } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
+import { useTheme } from '@mui/material/styles';
 
 export const NavDrawer = ({ openDrawer, setOpenDrawer }) => {
-	const toggleDrawer = event => {
-		console.log(
-			'🚀 ~ file: NavDrawer.js ~ line 17 ~ NavDrawer ~ event',
-			event.type
-		);
+	const theme = useTheme();
 
+	const toggleDrawer = event => {
 		if (
 			event.type === 'keydown' &&
 			(event.key === 'Tab' || event.key === 'Shift')
@@ -31,6 +33,7 @@ export const NavDrawer = ({ openDrawer, setOpenDrawer }) => {
 	return (
 		<Box
 			role="presentation"
+			color="inherit"
 			onClick={event => toggleDrawer(event)}
 			onKeyDown={event => toggleDrawer(event)}>
 			<Drawer
@@ -42,14 +45,28 @@ export const NavDrawer = ({ openDrawer, setOpenDrawer }) => {
 				anchor={'left'}
 				open={openDrawer}
 				onClose={event => toggleDrawer(event)}>
+				{' '}
+				<DrawerHeader>
+					<IconButton onClick={toggleDrawer}>
+						{theme.direction === 'ltr' ? (
+							<ChevronLeftIcon />
+						) : (
+							<ChevronRightIcon />
+						)}
+					</IconButton>
+				</DrawerHeader>
 				<List>
-					{fields.map((text, index) => (
-						<ListItem key={index} disablePadding>
+					{fields.map((link, index) => (
+						<ListItem component={Link} to={link.to} key={index} disablePadding>
 							<ListItemButton>
-								<ListItemIcon>
-									<Home />
+								<ListItemIcon sx={{ color: 'text.primary' }}>
+									{link.icon}
 								</ListItemIcon>
-								<ListItemText primary={text} />
+								<ListItemText
+									disableTypography
+									primary={link.text}
+									sx={{ color: 'text.primary' }}
+								/>
 							</ListItemButton>
 						</ListItem>
 					))}
