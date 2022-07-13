@@ -1,17 +1,22 @@
 * {
-  box-sizing: border-box;
-  font-family: 'Roboto';
-  font-weight: 400;
+	box-sizing: border-box;
+	font-family: 'Roboto';
+	font-weight: 400;
 }
 
 html,
 body {
-  font-size: 18px;
-  min-width: 100vw;
-  display: flex;
-  flex: 1;
+	font-size: 18px;
+	min-width: 100vw;
+	display: flex;
+	flex: 1;
 }
 
 #root {
-  flex: 1;
+	flex: 1;
+}
+
+.container {
+	padding: env(safe-area-inset-top) env(safe-area-inset-right)
+		env(safe-area-inset-bottom) env(safe-area-inset-left);
 }

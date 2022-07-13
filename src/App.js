@@ -36,11 +36,11 @@ const App = ({ ColorModeContext }) => {
 	const pullData = data => {
 		setOpen(data);
 	};
+	console.log(window.innerHeight);
 	return (
 		<Main
 			open={open}
 			sx={{
-				paddingBottom: 0,
 				minHeight: `${window.innerHeight}px`,
 			}}>
 			<Navbar
@@ -50,7 +50,7 @@ const App = ({ ColorModeContext }) => {
 				theme={theme}
 				sendOpenToApp={pullData}
 			/>
-			<Container maxWidth={'xl'}>
+			<Container maxWidth={'xl'} className="container">
 				<Stack direction={'row'}>
 					<AllRoutes />
 				</Stack>
