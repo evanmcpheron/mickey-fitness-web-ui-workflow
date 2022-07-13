@@ -13,6 +13,7 @@ const App = ({ ColorModeContext }) => {
 		Boolean(localStorage.getItem('isAuthenticated'))
 	);
 	const [open, setOpen] = useState(false);
+	const [height, setHeight] = useState(0);
 
 	const theme = useTheme();
 	const colorMode = useContext(ColorModeContext);
@@ -22,7 +23,15 @@ const App = ({ ColorModeContext }) => {
 		navigation.listen(() => {
 			setIsAuth(Boolean(localStorage.getItem('isAuthenticated')));
 		});
-	}, [navigation, isAuth]);
+		const updateWindowDimensions = () => {
+			const newHeight = window.innerHeight;
+			setHeight(newHeight);
+			console.log('updating height');
+		};
+		window.addEventListener('resize', updateWindowDimensions);
+
+		return () => window.removeEventListener('resize', updateWindowDimensions);
+	}, [navigation, isAuth, window]);
 
 	if (localStorage.isAuthenticated) {
 		getUser();
@@ -36,7 +45,6 @@ const App = ({ ColorModeContext }) => {
 	const pullData = data => {
 		setOpen(data);
 	};
-	console.log(window.innerHeight);
 	return (
 		<Main
 			open={open}
