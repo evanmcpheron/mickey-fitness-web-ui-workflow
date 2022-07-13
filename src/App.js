@@ -26,7 +26,6 @@ const App = ({ ColorModeContext }) => {
 		const updateWindowDimensions = () => {
 			const newHeight = window.innerHeight;
 			setHeight(newHeight);
-			console.log('updating height');
 		};
 		window.addEventListener('resize', updateWindowDimensions);
 
@@ -58,7 +57,7 @@ const App = ({ ColorModeContext }) => {
 				theme={theme}
 				sendOpenToApp={pullData}
 			/>
-			<Container maxWidth={'xl'} className="container">
+			<Container maxWidth={'xl'} sx={{ paddingTop: 5 }} className="container">
 				<Stack direction={'row'}>
 					<AllRoutes />
 				</Stack>
