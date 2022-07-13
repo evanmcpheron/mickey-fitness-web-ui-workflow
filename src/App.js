@@ -38,7 +38,9 @@ const App = ({ ColorModeContext }) => {
 	};
 
 	return (
-		<Main open={open} sx={{ paddingBottom: 0, minHeight: '100vh' }}>
+		<Main
+			open={open}
+			sx={{ paddingBottom: 0, paddingTop: '64px', minHeight: '100vh' }}>
 			<Navbar
 				isAuthenticated={isAuth}
 				user={user}
