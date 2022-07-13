@@ -48,7 +48,7 @@ const App = ({ ColorModeContext }) => {
 		<Main
 			open={open}
 			sx={{
-				minHeight: `${window.innerHeight}px`,
+				minHeight: `100vh`,
 			}}>
 			<Navbar
 				isAuthenticated={isAuth}
