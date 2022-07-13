@@ -10,7 +10,7 @@ let history = createBrowserHistory();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-	<Router history={history}>
+	<Router history={history} className="container">
 		<React.StrictMode>
 			<PaletteDisplay />
 		</React.StrictMode>

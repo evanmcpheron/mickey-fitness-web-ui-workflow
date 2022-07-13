@@ -57,7 +57,7 @@ const App = ({ ColorModeContext }) => {
 				theme={theme}
 				sendOpenToApp={pullData}
 			/>
-			<Container maxWidth={'xl'} sx={{ paddingTop: 5 }} className="container">
+			<Container maxWidth={'xl'} sx={{ paddingTop: 5 }}>
 				<Stack direction={'row'}>
 					<AllRoutes />
 				</Stack>
