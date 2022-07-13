@@ -7,6 +7,7 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { Dropdown } from './Component/Dropdown';
 import { NavDrawer } from './Component/NavDrawer';
 import { Link } from 'Components/Link';
+import { LightMode, DarkMode } from '@mui/icons-material';
 
 export const Navbar = ({
 	isAuthenticated,
@@ -70,11 +71,7 @@ export const Navbar = ({
 							)}
 						</Box>
 						<IconButton onClick={colorMode.toggleColorMode} color="inherit">
-							{theme.palette.mode === 'dark' ? (
-								<Brightness7Icon />
-							) : (
-								<Brightness4Icon />
-							)}
+							{theme.palette.mode === 'dark' ? <LightMode /> : <DarkMode />}
 						</IconButton>
 					</Box>
 				</Toolbar>

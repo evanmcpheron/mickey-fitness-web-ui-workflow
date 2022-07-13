@@ -13,7 +13,6 @@ export const Main = styled('main', {
 	flexGrow: 1,
 	padding: theme.spacing(3),
 	paddingTop: '64px',
-	minHeight: '100vh',
 	transition: theme.transitions.create('margin', {
 		easing: theme.transitions.easing.sharp,
 		duration: theme.transitions.duration.leavingScreen,

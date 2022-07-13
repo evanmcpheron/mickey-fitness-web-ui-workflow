@@ -56,7 +56,6 @@ export const PaletteDisplay = () => {
 				<Box
 					sx={{
 						width: '100%',
-						minHeight: '100vh',
 						bgcolor: 'background.default',
 						color: 'text.primary',
 					}}>

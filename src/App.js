@@ -38,14 +38,14 @@ const App = ({ ColorModeContext }) => {
 	};
 
 	return (
-		<Main open={open} sx={{ paddingBottom: 0, paddingTop: 0 }}>
-			{/* <Navbar
+		<Main open={open} sx={{ paddingBottom: 0, minHeight: '100vh' }}>
+			<Navbar
 				isAuthenticated={isAuth}
 				user={user}
 				colorMode={colorMode}
 				theme={theme}
 				sendOpenToApp={pullData}
-			/> */}
+			/>
 			<Container maxWidth={'xl'}>
 				<Stack direction={'row'}>
 					<AllRoutes />
