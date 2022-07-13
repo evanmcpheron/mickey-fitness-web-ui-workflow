@@ -36,11 +36,13 @@ const App = ({ ColorModeContext }) => {
 	const pullData = data => {
 		setOpen(data);
 	};
-
 	return (
 		<Main
 			open={open}
-			sx={{ paddingBottom: 0, paddingTop: '64px', minHeight: '100vh' }}>
+			sx={{
+				paddingBottom: 0,
+				minHeight: `${window.innerHeight}px`,
+			}}>
 			<Navbar
 				isAuthenticated={isAuth}
 				user={user}
